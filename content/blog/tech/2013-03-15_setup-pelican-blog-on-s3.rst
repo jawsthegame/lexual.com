@@ -110,6 +110,13 @@ You specify metadata for your blog post like so::
     :author: Guy Incognito
     :summary: Short version for index and feeds
 
+To have a post in draft mode::
+
+    :status: draft
+
+This will put the post online, but there'll be no links to it. To read it you
+have to type the url in directly.
+
 And code snippets look like this::
 
 

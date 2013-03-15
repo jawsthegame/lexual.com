@@ -18,14 +18,14 @@ Why use S3? Because it can host your content, serve it fast, and it'll cost
 you next to nothing. Especially if you expect to receive next to no traffic
 like me ;)
 
-And `S3 can now handle root domains
+And `S3 can now handle root domains.
 <http://www.allthingsdistributed.com/2012/12/root-domain-amazon-s3-website.html>`_
 
 
 The code for this site is on `my github account`_ so you can follow along, or 
 refer to it later. And this blog post itself, in reStructuredText_ format,
 can be found `here
-<https://github.com/lexual/lexual.com/blob/master/content/blog/tech/2013-03-15_setup-pelican-blog-on-s3.rst>`_
+<https://raw.github.com/lexual/lexual.com/master/content/blog/tech/2013-03-15_setup-pelican-blog-on-s3.rst>`_
 
 Installing Pelican.
 -------------------
@@ -93,7 +93,7 @@ Writing some content
 A quick search on the interwebs should give you some good resources to learn 
 the basics of reStructuredText_ or Markdown_. You can always checkout the 
 source for this blog post `here
-<https://github.com/lexual/lexual.com/blob/master/content/blog/tech/2013-03-15_setup-pelican-blog-on-s3.rst>`_
+<https://raw.github.com/lexual/lexual.com/master/content/blog/tech/2013-03-15_setup-pelican-blog-on-s3.rst>`_
 
 You're files should live under the content directory.
 
@@ -121,7 +121,7 @@ And code snippets look like this::
 What's it look like?
 --------------------
 
-To test what you're site will look locally, run::
+To test what you're site will look like locally, run::
 
     $ make html
 
@@ -198,7 +198,11 @@ The End
 -------
 
 There you have it. With a few small tweaks to the settings file you can have
-disqus comments, google analytics tracking, links to your github and twitter.
+Disqus comments, Google Analytics tracking, links to your Github and Twitter.
+
+You can also get it to generate pdf files of your content. `Here's this blog
+post as a pdf <http://lexual.com/pdf/setup-pelican-blog-on-s3.pdf>`_
+
 All of this without having written a single line of html, css, or javascript.
 Massive win!
 

@@ -2,8 +2,9 @@ Setting up a blog with Pelican and Amazon S3.
 ==============================================
 
 :tags: aws, pelican, python
-:summary: Instructions on how to setup a blog with both Pelican_ and Amazon S3.
-:status: draft
+:summary: Instructions on how to setup a blog with both Pelican and Amazon S3.
+
+The blog you are now reading is hosted on S3 and generated using Pelican_.
 
 This is a quick outline of the steps involved in getting your own blog setup
 using the excellent Pelican_ blogging software, written in Python_, and getting
@@ -16,6 +17,9 @@ you.
 Why use S3? Because it can host your content, serve it fast, and it'll cost 
 you next to nothing. Especially if you expect to receive next to no traffic
 like me ;)
+
+And `S3 can now handle root domains
+<http://www.allthingsdistributed.com/2012/12/root-domain-amazon-s3-website.html>`_
 
 
 The code for this site is on `my github account`_ so you can follow along, or 
@@ -60,8 +64,8 @@ Now you should have a bunch of files like this:
 content/
     This is where you write you're content (Markdown_ or reStructuredText_)
 output/
-    This is where the generated html content goes. We won't commit this into 
-    version control.
+    This is where the generated html content goes.
+    I add this to my .gitignore and keep it out of version control.
 Makefile
     Gives some really nice make commands to build and push our content around.
 develop_server.sh
@@ -99,9 +103,6 @@ A few Pelican_ specifics.
 
 You specify metadata for your blog post like so::
 
-    :tags: aws, pelican, python
-    :summary: Short summary goes here.
-
     :date: 2013-03-15 20:20
     :tags: aws, pelican, python
     :category: yeah
@@ -114,9 +115,8 @@ And code snippets look like this::
 
     .. code-block:: python
     
-        import os
-        def x(n):
-            print n + 1
+        def plus_one(n):
+            return n + 1
 
 What's it look like?
 --------------------
@@ -125,7 +125,7 @@ To test what you're site will look locally, run::
 
     $ make html
 
-This generates the static content. And then::
+This generates the static content into output/. And then::
 
     $ make serve
 
@@ -134,15 +134,15 @@ And you can now check your site out at http://localhost:8000/ in your browser.
 Creating S3 buckets.
 --------------------
 
-Let's say your site is www.foo.com. Go into Amazon's `AWS Console`_ and 
-create 2 buckets: 'www.foo.com' and 'foo.com'. We'll only actually load content
-into one of these, the other just helps route traffic from www.foo.com to
-foo.com.
+Let's say your site is www.mysite.com. Go into Amazon's `AWS Console`_ and 
+create 2 buckets: 'www.mysite.com' and 'mysite.com'. We'll only actually load
+content into one of these, the other just helps route traffic from
+www.mysite.com to mysite.com.
 
-Under properties for 'www.foo.com', choose 'redirect all requests to another
+Under properties for 'www.mysite.com', choose 'redirect all requests to another
 host name' under 'Static Web Hosting'.
 
-Under properties for 'foo.com', choose 'enable website hosting' under
+Under properties for 'mysite.com', choose 'enable website hosting' under
 'Static Web Hosting', and set 'Index Document' to 'index.html'.
 
 Putting your content up on S3.
@@ -163,6 +163,7 @@ call to::
 
     $ make s3_upload
 
+This rebuilds all the static content, then pushes it to s3.  
 All you need to do after editing or adding any content is run this command
 again.
 
@@ -173,8 +174,8 @@ Routing through Amazon's Route 53.
 I'm assuming your domain registrar dns is pointing to Amazon's Route 53. If not
 it's a simple as copying and pasting the 4 domain names Amazon provide you.
 
-All we have to do is create 2 A records and we're done. One for 'foo.com' and
-one for 'www.foo.com'.
+All we have to do is create 2 A records and we're done. One for 'mysite.com'
+and one for 'www.mysite.com'.
 
 For each one, set 'Alias' to yes, and then set the 'Alias Target' to the s3
 bucket with the same name.
@@ -184,8 +185,22 @@ Learning more about Pelican
 
 The docs for Pelican_ are pretty good way to learn more about the ins and out
 of the project. Another good way to learn more is to checkout github repos
-for people who are using Pelican_ for the blog. One pythonista I've referred
+for people who are using Pelican_ for the blog. One pythonista's I've referred
 to is `pydanny's repo <https://github.com/pydanny/pydanny.github.com>`_
+
+`kernel.org is another notable Pelican user.
+<https://www.kernel.org/pelican.html>`_
+
+If I've missed anything, or made any mistakes here, please let me know and
+I'll correct them and update the post.
+
+The End
+-------
+
+There you have it. With a few small tweaks to the settings file you can have
+disqus comments, google analytics tracking, links to your github and twitter.
+All of this without having written a single line of html, css, or javascript.
+Massive win!
 
 .. _Pelican: http://docs.getpelican.com
 .. _Python: http://python.org
@@ -198,3 +213,4 @@ to is `pydanny's repo <https://github.com/pydanny/pydanny.github.com>`_
 .. _pushing to S3: https://github.com/getpelican/pelican/pull/775
 .. _AWS Console: http://aws.amazon.com/console
 .. _s3cmd: http://s3tools.org
+.. _kernel.org: https://www.kernel.org/pelican.html

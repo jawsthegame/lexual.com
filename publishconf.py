@@ -6,6 +6,7 @@ sys.path.append('.')
 from pelicanconf import *
 
 SITEURL = 'http://lexual.com'
+FEED_DOMAIN = SITEURL
 
 DELETE_OUTPUT_DIRECTORY = True
 

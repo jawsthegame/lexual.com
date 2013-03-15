@@ -18,7 +18,7 @@ SSH_TARGET_DIR=/var/www
 
 DROPBOX_DIR=~/Dropbox/Public/
 
-S3_BUCKET=www.lexual.com
+S3_BUCKET=lexual.com
 
 help:
 	@echo 'Makefile for a pelican Web site                                        '

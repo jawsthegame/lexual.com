@@ -36,3 +36,13 @@ DISQUS_SITENAME = 'lexualcom'
 GITHUB_URL = 'https://github.com/lexual/lexual.com'
 TWITTER_USERNAME = 'LexualChocolate'
 GOOGLE_ANALYTICS = 'UA-39331100-1'
+
+#ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+#ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+ARTICLE_URL = 'blog/{slug}/'
+ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
+
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
+
+FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})_(?P<slug>.*)'

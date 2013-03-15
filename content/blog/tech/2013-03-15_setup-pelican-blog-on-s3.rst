@@ -30,7 +30,7 @@ can be found `here
 Installing Pelican.
 -------------------
 
-I'll assume your already familiar with virtualenv_ and the excellent
+I'll assume you're already familiar with virtualenv_ and the excellent
 virtualenvwrapper_.
 
 Now do a simple::

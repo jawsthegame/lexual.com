@@ -95,7 +95,7 @@ the basics of reStructuredText_ or Markdown_. You can always checkout the
 source for this blog post `here
 <https://raw.github.com/lexual/lexual.com/master/content/blog/tech/2013-03-15_setup-pelican-blog-on-s3.rst>`_
 
-You're files should live under the content directory.
+Your files should live under the content directory.
 
 If you'd like to add pages that aren't blog posts, do this under content/pages.
 

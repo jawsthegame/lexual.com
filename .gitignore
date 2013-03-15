@@ -1,5 +1,8 @@
 *.py[cod]
 
+# html/css/etc.
+output
+
 # C extensions
 *.so
 

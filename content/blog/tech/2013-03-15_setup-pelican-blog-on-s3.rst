@@ -62,7 +62,7 @@ Now you should have a bunch of files like this:
 
 
 content/
-    This is where you write you're content (Markdown_ or reStructuredText_)
+    This is where you write your content (Markdown_ or reStructuredText_)
 output/
     This is where the generated html content goes.
     I add this to my .gitignore and keep it out of version control.
@@ -121,7 +121,7 @@ And code snippets look like this::
 What's it look like?
 --------------------
 
-To test what you're site will look like locally, run::
+To test what your site will look like locally, run::
 
     $ make html
 

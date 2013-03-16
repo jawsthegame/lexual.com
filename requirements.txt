@@ -1,4 +1,3 @@
 pelican
 s3cmd
 rst2pdf
-python-magic

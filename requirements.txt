@@ -1,3 +1,14 @@
 pelican
 s3cmd
 rst2pdf
+
+ipython
+tornado
+pyzmq
+
+Markdown
+
+pandas
+matplotlib
+
+feedparser

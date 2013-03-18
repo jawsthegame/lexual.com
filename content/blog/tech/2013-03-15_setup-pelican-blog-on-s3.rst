@@ -6,6 +6,7 @@ Setting up a blog with Pelican and Amazon S3.
 
 The blog you are now reading is hosted on S3 and generated using Pelican_.
 
+
 This is a quick outline of the steps involved in getting your own blog setup
 using the excellent Pelican_ blogging software, written in Python_, and getting
 it hosted on `Amazon S3`_.
@@ -33,14 +34,18 @@ Installing Pelican.
 I'll assume you're already familiar with virtualenv_ and the excellent
 virtualenvwrapper_.
 
-Now do a simple::
+From within your virtualenv do a simple:
+
+.. code-block:: console
 
     $ pip install pelican
 
 Setting up your Pelican blog.
 ------------------------------
 
-After you've created a repo, run::
+After you've created a repo, run:
+
+.. code-block:: console
 
     $ pelican-quickstart
 
@@ -50,15 +55,15 @@ this later.
 
 Now you should have a bunch of files like this:
 
-.. code-block:: sh
+.. code-block:: console
 
-    .
-    |-- content/
-    |-- output/
-    |-- Makefile
-    |-- develop_server.sh
-    |-- pelicanconf.py
-    |-- publishconf.py
+    $ ls
+    content/
+    output/
+    Makefile
+    develop_server.sh
+    pelicanconf.py
+    publishconf.py
 
 
 content/
@@ -79,7 +84,7 @@ I've added support to the Makefile for `pushing to S3`_, hopefully it will be
 merged into Pelican_ by the time you read this, if not here's the additions to
 the Makefile you'll need.
 
-::
+.. code-block:: make
 
     S3_BUCKET=put_your_s3_bucket_name_here
 
@@ -101,7 +106,9 @@ If you'd like to add pages that aren't blog posts, do this under content/pages.
 
 A few Pelican_ specifics.
 
-You specify metadata for your blog post like so::
+You specify metadata for your blog post like so:
+
+.. code-block:: rst
 
     :date: 2013-03-15 20:20
     :tags: aws, pelican, python
@@ -110,7 +117,9 @@ You specify metadata for your blog post like so::
     :author: Guy Incognito
     :summary: Short version for index and feeds
 
-To have a post in draft mode::
+To have a post in draft mode:
+
+.. code-block:: rst
 
     :status: draft
 
@@ -119,20 +128,30 @@ have to type the url in directly.
 
 And code snippets look like this::
 
-
     .. code-block:: python
     
         def plus_one(n):
             return n + 1
 
+And renders like this:
+
+.. code-block:: python
+
+    def plus_one(n):
+        return n + 1
+
 What's it look like?
 --------------------
 
-To test what your site will look like locally, run::
+To test what your site will look like locally, run:
+
+.. code-block:: console
 
     $ make html
 
-This generates the static content into output/. And then::
+This generates the static content into output/. And then:
+
+.. code-block:: console
 
     $ make serve
 
@@ -155,18 +174,24 @@ Under properties for 'mysite.com', choose 'enable website hosting' under
 Putting your content up on S3.
 ------------------------------
 
-First install s3cmd_::
+First install s3cmd_:
+
+.. code-block:: console
 
     $ pip install s3cmd
 
-Now let it know your Amazon credentials::
+Now let it know your Amazon credentials:
+
+.. code-block:: console
 
     $ s3cmd --configure
 
 And give it your AWS access key and secret key.
 
 Now any time you want to rebuild your content and push it to s3, it's a simple
-call to::
+call to:
+
+.. code-block:: console
 
     $ make s3_upload
 
@@ -207,8 +232,8 @@ The End
 There you have it. With a few small tweaks to the settings file you can have
 Disqus comments, Google Analytics tracking, links to your Github and Twitter.
 
-You can also get it to generate pdf files of your content. `Here's this blog
-post as a pdf <http://lexual.com/pdf/setup-pelican-blog-on-s3.pdf>`_
+.. You can also get it to generate pdf files of your content. `Here's this blog
+    post as a pdf <http://lexual.com/pdf/setup-pelican-blog-on-s3.pdf>`_
 
 All of this without having written a single line of html, css, or javascript.
 Massive win!

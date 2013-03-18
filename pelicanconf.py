@@ -30,8 +30,8 @@ SOCIAL = (
 
 DEFAULT_PAGINATION = 10
 
-PDF_GENERATOR = False
 PDF_GENERATOR = True
+PDF_GENERATOR = False
 
 DISQUS_SITENAME = 'lexualcom'
 GITHUB_URL = 'https://github.com/lexual/lexual.com'
@@ -46,8 +46,9 @@ PAGE_SAVE_AS = '{slug}/index.html'
 
 FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})_(?P<slug>.*)'
 
+THEME = 'themes/built-texts'
+
 #THEME = 'notmyidea'
-THEME = 'built-texts'
 #THEME = 'tuxlite_tbs'
 #THEME = 'iris'
 
@@ -79,5 +80,13 @@ THEME = 'built-texts'
 #THEME = 'waterspill'
 #THEME = 'waterspill-en'
 
-FEED_RSS = 'feeds/all.rss.xml'
-CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
+#FEED_RSS = 'feeds/all.rss.xml'
+#CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
+
+PLUGINS = ['myplugins.ipythonnb', 'pelican.plugins.github_activity']
+#PLUGINS = ['pelican.plugins.ipythonnb']
+MARKUP = ('rst', 'md', 'ipynb',)
+
+SUMMARY_MAX_LENGTH = 25
+
+GITHUB_ACTIVITY_FEED = 'https://github.com/lexual.atom'

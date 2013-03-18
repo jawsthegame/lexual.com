@@ -2,7 +2,6 @@ Setting up a blog with Pelican and Amazon S3.
 ==============================================
 
 :tags: aws, pelican, python
-:summary: Instructions on how to setup a blog with both Pelican and Amazon S3.
 
 The blog you are now reading is hosted on S3 and generated using Pelican_.
 

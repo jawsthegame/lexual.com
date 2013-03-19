@@ -1,10 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block windowtitle %}{{ article.title }}{% endblock %}
+{% block description %}{{ article.title }}{% endblock %}
+{% block keywords %}
+{% for tag in article.tags %}{{ tag }},{% endfor %}
+
+{% endblock %}
 {% block extra_css %}
     {% if article.ipython %}
         <link rel="stylesheet" href="/theme/css/ipython.css">
     {% endif %}
 {% endblock %}
 
-{% extends "base.html" %}
 {% block content %}
     <div class='article'>
       <div class="row-fluid">

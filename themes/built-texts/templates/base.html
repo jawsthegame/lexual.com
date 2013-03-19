@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>{% block windowtitle %}{{ SITENAME }}{% endblock %}</title>
-    <meta name="description" content="">
+    <meta name="description" content="{% block description %}Lexual's tech blog on python, data, etc.{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}python,data,math,code{% endblock %}">
     <meta name="author" content="{{ AUTHOR }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
